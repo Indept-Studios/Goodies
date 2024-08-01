@@ -1,0 +1,75 @@
+
+[
+    {
+        "id": 1,
+        "name": "Köln",
+        "goods": [
+            {
+                "id": 1,
+                "name": "Bananen",
+                "amount": null,
+                "price": null
+            },
+            {
+                "id": 2,
+                "name": "Kaffee",
+                "amount": null,
+                "price": null
+            },
+            {
+                "id": 3,
+                "name": "Stahl",
+                "amount": null,
+                "price": null
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Leverkusen",
+        "goods": [
+            {
+                "id": 1,
+                "name": "Bananen",
+                "amount": null,
+                "price": null
+            },
+            {
+                "id": 2,
+                "name": "Kaffee",
+                "amount": null,
+                "price": null
+            },
+            {
+                "id": 3,
+                "name": "Stahl",
+                "amount": null,
+                "price": null
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Hamburg",
+        "goods": [
+            {
+                "id": 1,
+                "name": "Bananen",
+                "amount": null,
+                "price": null
+            },
+            {
+                "id": 2,
+                "name": "Kaffee",
+                "amount": null,
+                "price": null
+            },
+            {
+                "id": 3,
+                "name": "Stahl",
+                "amount": null,
+                "price": null
+            }
+        ]
+    }
+]
