@@ -1,4 +1,4 @@
-export function handle({ gameState }) {
+export function handle({ gameState: gameState }) {
     return (req, res) => {
         const { goodId, amount } = req.body;
         const currentCity = gameState.currentCity;

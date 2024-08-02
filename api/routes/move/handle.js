@@ -1,4 +1,4 @@
-export function handle(gameState, citiesDB, randomizeHarbours) {
+export function handle({ gameState, citiesDB, randomizeHarbours }) {
     return (req, res) => {
         const { cityId } = req.body;
         if (gameState.currentCity.id === cityId) {

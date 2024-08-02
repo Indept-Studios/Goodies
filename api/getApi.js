@@ -12,11 +12,11 @@ function getApi({ gameState, citiesDB, randomizeHarbours }) {
     api.get('/', (req, res) => {
         res.status(200).json({ playerStats: gameState, cities: citiesDB });
     });
-    api.get('/current-state', state(gameState));
-    api.post('/buy', buy(gameState));
-    api.post('/sell', sell(gameState));
-    api.post('/move', move(gameState, citiesDB, randomizeHarbours));
-    api.get('/player-stats', playerStats(gameState));
+    api.get('/current-state', state({ gameState }));
+    api.post('/buy', buy({ gameState }));
+    api.post('/sell', sell({ gameState }));
+    api.post('/move', move({ gameState, citiesDB, randomizeHarbours }));
+    api.get('/player-stats', playerStats({ gameState }));
 
     return api;
 }
