@@ -1,14 +1,15 @@
-import * as fs from 'node:fs';
+import * as fs from 'node:fs/promises';
+import path from 'node:path';
 
-const citiesFilePath = './generateCities\\cities.txt';
-const goodsFilePath = './generateCities\\goods.txt';
+const citiesFilePath = './generateCities/cities.txt';
+const goodsFilePath = './generateCities/goods.txt';
 const outputFilePath = './cities.json';
 
 const readFile = (filePath) => {
     return fs.readFileSync(filePath, 'utf8').trim().split('\n');
 };
 
-const parseGoods = (goodsLines) => {
+const generateGoods = async (goodsLines) => {
     return goodsLines.map((line, index) => {
         const name = line.trim();
         return {
@@ -20,24 +21,34 @@ const parseGoods = (goodsLines) => {
     });
 };
 
-const generateJson = () => {
-    const cities = readFile(citiesFilePath);
-    const goods = parseGoods(readFile(goodsFilePath));
+const generateJson = async () => {
+    try {
+        const citiesFileContent = await fs.readFile(citiesFilePath, 'utf-8');
+        const goodsFileContent = await fs.readFile(goodsFilePath, 'utf-8');
 
-    const result = cities.map((city, index) => ({
-        id: index + 1,
-        name: city.trim(),
-        goods: goods
-    }));
+        const cities = citiesFileContent.split('\n');
+        const goodsLines = goodsFileContent.split('\n');
 
-    return result;
+        const goods = await generateGoods(goodsLines);
+
+        const result = cities.map((city, index) => ({
+            id: index + 1,
+            name: city.trim(),
+            goods: goods
+        }));
+
+        return result;
+    } catch (error) {
+        console.error('Error generating JSON:', error);
+        throw error;
+    }
 };
 
-const writeJsonFile = (data) => {
-    fs.writeFileSync(outputFilePath, JSON.stringify(data, null, 2));
+const writeJsonFile = async (data) => {
+    fs.writeFile(outputFilePath, JSON.stringify(data, null, 2));
 };
 
-const data = generateJson();
+const data = await generateJson();
 writeJsonFile(data);
 
 console.log('JSON-Datei erfolgreich erstellt:', outputFilePath);
