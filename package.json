@@ -2,7 +2,8 @@
   "name": "goodies",
   "type": "module",
   "scripts": {
-    "dev": "node ./server.js"
+    "dev": "node ./server.js",
+    "cities": "node ./generateCities.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

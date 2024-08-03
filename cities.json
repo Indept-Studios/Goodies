@@ -1,75 +1,152 @@
-
 [
-    {
+  {
+    "id": 1,
+    "name": "Köln",
+    "goods": [
+      {
         "id": 1,
-        "name": "Köln",
-        "goods": [
-            {
-                "id": 1,
-                "name": "Bananen",
-                "amount": null,
-                "price": null
-            },
-            {
-                "id": 2,
-                "name": "Kaffee",
-                "amount": null,
-                "price": null
-            },
-            {
-                "id": 3,
-                "name": "Stahl",
-                "amount": null,
-                "price": null
-            }
-        ]
-    },
-    {
+        "name": "Kaffee",
+        "amount": null,
+        "price": null
+      },
+      {
         "id": 2,
-        "name": "Leverkusen",
-        "goods": [
-            {
-                "id": 1,
-                "name": "Bananen",
-                "amount": null,
-                "price": null
-            },
-            {
-                "id": 2,
-                "name": "Kaffee",
-                "amount": null,
-                "price": null
-            },
-            {
-                "id": 3,
-                "name": "Stahl",
-                "amount": null,
-                "price": null
-            }
-        ]
-    },
-    {
+        "name": "Bananen",
+        "amount": null,
+        "price": null
+      },
+      {
         "id": 3,
-        "name": "Hamburg",
-        "goods": [
-            {
-                "id": 1,
-                "name": "Bananen",
-                "amount": null,
-                "price": null
-            },
-            {
-                "id": 2,
-                "name": "Kaffee",
-                "amount": null,
-                "price": null
-            },
-            {
-                "id": 3,
-                "name": "Stahl",
-                "amount": null,
-                "price": null
-            }
-        ]
-    }
+        "name": "Stahl",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 4,
+        "name": "Kekse",
+        "amount": null,
+        "price": null
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Leverkusen",
+    "goods": [
+      {
+        "id": 1,
+        "name": "Kaffee",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 2,
+        "name": "Bananen",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 3,
+        "name": "Stahl",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 4,
+        "name": "Kekse",
+        "amount": null,
+        "price": null
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Hamburg",
+    "goods": [
+      {
+        "id": 1,
+        "name": "Kaffee",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 2,
+        "name": "Bananen",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 3,
+        "name": "Stahl",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 4,
+        "name": "Kekse",
+        "amount": null,
+        "price": null
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Amsterdam",
+    "goods": [
+      {
+        "id": 1,
+        "name": "Kaffee",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 2,
+        "name": "Bananen",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 3,
+        "name": "Stahl",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 4,
+        "name": "Kekse",
+        "amount": null,
+        "price": null
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Roterdam",
+    "goods": [
+      {
+        "id": 1,
+        "name": "Kaffee",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 2,
+        "name": "Bananen",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 3,
+        "name": "Stahl",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 4,
+        "name": "Kekse",
+        "amount": null,
+        "price": null
+      }
+    ]
+  }
 ]

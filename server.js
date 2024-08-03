@@ -4,7 +4,7 @@ import { getApi } from './api/getApi.js';
 import { randomInt } from './utils/random.js';
 import dotenv from 'dotenv';
 
-dotenv.config(); // Lädt Umgebungsvariablen aus einer .env-Datei
+dotenv.config();
 
 const port = process.env.PORT || 3000;
 
