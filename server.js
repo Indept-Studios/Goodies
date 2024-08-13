@@ -10,8 +10,10 @@ const port = process.env.PORT;
 
 (async () => {
     try {
-        const cityJSONFileContent = await fs.readFile('./cities.json');
+        const cityJSONFileContent = await fs.readFile('./cities.json', 'utf-8');
         const citiesDB = JSON.parse(cityJSONFileContent);
+        const userJSONFileContent = await fs.readFile('./users.json', 'utf-8');
+        const usersDB = JSON.parse(userJSONFileContent);
 
         const gameState = {
             moneyAmount: null,
@@ -39,7 +41,7 @@ const port = process.env.PORT;
 
         initializeGame();
 
-        const api = getApi({ gameState, citiesDB, randomizeHarbours });
+        const api = getApi({ gameState, citiesDB, usersDB, randomizeHarbours });
 
         const app = express();
         app.use(express.json());
