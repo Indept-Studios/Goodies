@@ -1,8 +1,8 @@
 import express from 'express';
 import * as fs from 'node:fs/promises';
+import dotenv from 'dotenv';
 import { getApi } from './api/getApi.js';
 import { randomInt } from './utils/random.js';
-import dotenv from 'dotenv';
 
 dotenv.config();
 

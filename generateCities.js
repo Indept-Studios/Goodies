@@ -1,5 +1,4 @@
 import * as fs from 'node:fs/promises';
-import path from 'node:path';
 
 const citiesFilePath = './generateCities/cities.txt';
 const goodsFilePath = './generateCities/goods.txt';
