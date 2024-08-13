@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "username": "Chris",
+    "password": "987654",
+    "gameState": {
+      "moneyAmount": 10,
+      "currentCity": null,
+      "truck": [],
+      "previousCity": null
+    }
+  }
+]
