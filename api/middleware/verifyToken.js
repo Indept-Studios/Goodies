@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
-import { addToken, checkToken } from './tokenBlacklist.js';
+import { checkToken } from './tokenBlacklist.js';
 
 dotenv.config();
 const JWT_SECRET = process.env.JWT_SECRET;

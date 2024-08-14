@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import { getApi } from './api/getApi.js';
 import { initializeGame } from './api/routes/game/gameState.js';
 import { randomizeHarbours } from './utils/harbourRandomizer.js';
-import { verifyToken } from './api/middleware/verifyToken.js';
 
 dotenv.config();
 
