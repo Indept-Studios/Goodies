@@ -1,4 +1,4 @@
 /.env
-utils\CODE_DOCUMENTATION.md
-utils\API_DOCUMENTATION.md
-utils\DOCUMENTATION_1.md
+# Ignore API documentation files
+utils/API_DOCUMENTATION.md
+utils/CODE_DOCUMENTATION.md
