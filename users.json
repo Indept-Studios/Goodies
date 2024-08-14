@@ -2,10 +2,39 @@
   {
     "id": 1,
     "username": "Chris",
-    "password": "987654",
+    "password": "$2a$10$fz5eJulgHYxEc/CoV2ydBuKZ5QMiw7E3DXqsuwE2fDd01zUhRXmR2",
     "gameState": {
       "moneyAmount": 10,
-      "currentCity": null,
+      "currentCity": {
+        "id": 1,
+        "name": "Köln",
+        "goods": [
+          {
+            "id": 1,
+            "name": "Kaffee",
+            "amount": 4,
+            "price": 1
+          },
+          {
+            "id": 2,
+            "name": "Bananen",
+            "amount": 9,
+            "price": 10
+          },
+          {
+            "id": 3,
+            "name": "Stahl",
+            "amount": 3,
+            "price": 3
+          },
+          {
+            "id": 4,
+            "name": "Kekse",
+            "amount": 1,
+            "price": 2
+          }
+        ]
+      },
       "truck": [],
       "previousCity": null
     }

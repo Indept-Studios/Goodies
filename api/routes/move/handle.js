@@ -1,8 +1,13 @@
 export function handle({ gameState, citiesDB, randomizeHarbours }) {
     return (req, res) => {
         const { cityId } = req.body;
+
         if (gameState.currentCity.id === cityId) {
-            return res.status(400).send('You are already in this city');
+            return res.status(200).json({
+                message: 'You are already in this city',
+                city: gameState.currentCity,
+                status: 'ALREADY_IN_CITY'
+            });
         }
 
         const newCity = citiesDB.find(c => c.id === cityId);
@@ -13,6 +18,10 @@ export function handle({ gameState, citiesDB, randomizeHarbours }) {
         gameState.previousCity = gameState.currentCity;
         gameState.currentCity = newCity;
         randomizeHarbours([newCity]);
-        res.json(gameState);
+
+        res.json({
+            message: 'Moved to new city',
+            gameState
+        });
     };
 }

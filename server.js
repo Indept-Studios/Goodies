@@ -2,44 +2,24 @@ import express from 'express';
 import * as fs from 'node:fs/promises';
 import dotenv from 'dotenv';
 import { getApi } from './api/getApi.js';
-import { randomInt } from './utils/random.js';
+import { initializeGame } from './api/routes/game/gameState.js';
+import { randomizeHarbours } from './utils/harbourRandomizer.js';
+import { verifyToken } from './api/middleware/verifyToken.js';
 
 dotenv.config();
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 (async () => {
     try {
-        const cityJSONFileContent = await fs.readFile('./cities.json', 'utf-8');
+        const [cityJSONFileContent, userJSONFileContent] = await Promise.all([
+            fs.readFile('./cities.json', 'utf-8'),
+            fs.readFile('./users.json', 'utf-8')
+        ]);
         const citiesDB = JSON.parse(cityJSONFileContent);
-        const userJSONFileContent = await fs.readFile('./users.json', 'utf-8');
         const usersDB = JSON.parse(userJSONFileContent);
 
-        const gameState = {
-            moneyAmount: null,
-            currentCity: null,
-            truck: [],
-            previousCity: null
-        };
-
-        function randomizeHarbours(citiesDB) {
-            for (const city of citiesDB) {
-                for (const good of city.goods) {
-                    good.amount = randomInt(0, 10);
-                    good.price = randomInt(1, 10);
-                }
-            }
-        }
-
-        function initializeGame() {
-            gameState.currentCity = citiesDB[0];
-            gameState.previousCity = null;
-            gameState.moneyAmount = 10;
-            gameState.truck = [];
-            randomizeHarbours(citiesDB);
-        }
-
-        initializeGame();
+        const gameState = initializeGame(citiesDB);
 
         const api = getApi({ gameState, citiesDB, usersDB, randomizeHarbours });
 
@@ -57,11 +37,21 @@ const port = process.env.PORT;
 
         app.use('/api', api);
 
+        app.use((err, req, res, next) => {
+            console.error('Unhandled Error:', err);
+            res.status(500).json({ error: 'Internal Server Error' });
+        });
+
         app.listen(port, () => {
-            console.log(`Server started on Port: ${port}`);
+            console.log(`Server started on Port: ${port} in ${process.env.NODE_ENV || 'development'} mode`);
         });
     } catch (error) {
         console.error('Error initializing the server:', error);
+        if (error.code === 'ENOENT') {
+            console.error('One of the required files (cities.json or users.json) is missing.');
+        } else if (error instanceof SyntaxError) {
+            console.error('Invalid JSON format in one of the files.');
+        }
         process.exit(1);
     }
 })();

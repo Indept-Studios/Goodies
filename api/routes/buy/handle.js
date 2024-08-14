@@ -1,18 +1,37 @@
 export function handle({ gameState }) {
     return (req, res) => {
         const { goodId, amount } = req.body;
+
+        if (!goodId || amount <= 0) {
+            return res.status(400).json({
+                message: 'Invalid goodId or amount',
+                status: 'INVALID_INPUT'
+            });
+        }
+
         const currentCity = gameState.currentCity;
 
         const good = currentCity.goods.find(g => g.id === goodId);
         if (!good) {
-            return res.status(400).send('Goods not found');
+            return res.status(400).json({
+                message: 'Goods not found',
+                status: 'GOOD_NOT_FOUND'
+            });
         }
+
         if (amount > good.amount) {
-            return res.status(400).send('Not enough goods');
+            return res.status(400).json({
+                message: 'Not enough goods available',
+                status: 'INSUFFICIENT_GOODS'
+            });
         }
+
         const cost = amount * good.price;
         if (cost > gameState.moneyAmount) {
-            return res.status(400).send('Not enough money');
+            return res.status(400).json({
+                message: 'Not enough money to buy the goods',
+                status: 'INSUFFICIENT_FUNDS'
+            });
         }
 
         good.amount -= amount;
@@ -25,6 +44,10 @@ export function handle({ gameState }) {
             gameState.truck.push({ id: good.id, name: good.name, amount: amount });
         }
 
-        res.json(gameState);
+        res.json({
+            message: 'Goods purchased successfully',
+            status: 'PURCHASE_SUCCESS',
+            gameState
+        });
     };
 }

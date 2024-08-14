@@ -1,16 +1,30 @@
-export function handle({ gameState: gameState }) {
+export function handle({ gameState }) {
     return (req, res) => {
         const { goodId, amount } = req.body;
+
+        if (!goodId || amount <= 0) {
+            return res.status(400).json({
+                message: 'Invalid goodId or amount',
+                status: 'INVALID_INPUT'
+            });
+        }
+
         const currentCity = gameState.currentCity;
 
         const inventory = gameState.truck.find(g => g.id === goodId);
         if (!inventory || inventory.amount < amount) {
-            return res.status(400).send('Not enough goods in inventory');
+            return res.status(400).json({
+                message: 'Not enough goods in inventory',
+                status: 'INSUFFICIENT_GOODS'
+            });
         }
 
         const good = currentCity.goods.find(g => g.id === goodId);
         if (!good) {
-            return res.status(400).send('Goods not found');
+            return res.status(400).json({
+                message: 'Goods not found',
+                status: 'GOOD_NOT_FOUND'
+            });
         }
 
         const earnings = amount * good.price;
@@ -20,6 +34,10 @@ export function handle({ gameState: gameState }) {
         }
 
         gameState.moneyAmount += earnings;
-        res.json(gameState);
+        res.json({
+            message: 'Goods sold successfully',
+            status: 'SALE_SUCCESS',
+            gameState
+        });
     };
 }

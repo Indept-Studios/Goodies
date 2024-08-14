@@ -1,15 +1,22 @@
+import bcrypt from 'bcryptjs';
+import { generateToken } from '../../middleware/verifyToken.js';
+
 export function handle({ usersDB }) {
     return (req, res) => {
         const { username, password } = req.body;
-        const user = usersDB.find(user => user.username === username && user.password === password);
+        const user = usersDB.find(user => user.username === username);
 
         if (!user) {
             return res.status(401).send('Invalid credentials');
         }
 
-        // In a real app, generate and return a JWT here
-        const token = "mocked-jwt-token"; // Replace with real JWT generation
+        const validPassword = bcrypt.compareSync(password, user.password);
+        if (!validPassword) {
+            return res.status(401).send('Invalid credentials');
+        }
 
-        res.status(200).json({ message: 'Login successful', token });
+        const token = generateToken({ id: user.id, username: user.username });
+
+        res.status(200).send(token);
     };
 }
