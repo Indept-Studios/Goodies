@@ -11,7 +11,7 @@ const markdownFilePath = path.join(__dirname, 'CODE_DOCUMENTATION.md');
 const excludedDirectories = ['node_modules'];  // Verzeichnisse, die ausgeschlossen werden sollen
 
 function generateMarkdown(directory) {
-    let markdownContent = '# API Documentation\n\n';
+    let markdownContent = '# CODE Documentation\n\n';
 
     function readDirectory(dirPath) {
         const entries = fs.readdirSync(dirPath, { withFileTypes: true });
