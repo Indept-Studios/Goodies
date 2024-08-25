@@ -12,7 +12,7 @@
 
 ## Elevator Pitch
 
-You are an Business owner with a vehicle and limited resources. 
+You are an Business owner with a vehicle and limited resources.\
 Travel from city to city and make deals to increase your money
 
 ## Install
@@ -30,13 +30,13 @@ To start the server in development mode, simply enter
 npm run dev
 ```
 
-To start the server in development mode with nodemon, simply enter
+To start the server in development mode with nodemon, simply enter\
 (nodemon is a tool to start the server in hot reload mode, it restarts automatically after every change)
 ```sh
 npm run devn
 ```
 
-Unless otherwise specified in the .env file, 
+Unless otherwise specified in the .env file,\
 the server starts on port 3000 and can therefore be reached at
 ```sh
 localhost:3000/api
@@ -80,7 +80,9 @@ npm run cities
 
 ## Savegames & Users
 
-Players and their savegame are saved in ```users.json```
+Players and their savegame are saved in ```users.json```.\
+After logging out, the token is saved under ```tokenBlacklist.json```.\
+If you want to reuse the same token, simply delete the entry in the file
 
 ## Author
 
