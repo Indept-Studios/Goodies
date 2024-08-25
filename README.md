@@ -1,12 +1,4 @@
 <h1 align="center">Welcome to goodies 👋</h1>
-<p>
-  <a href="https://www.npmjs.com/package/goodies" target="_blank">
-    <img alt="Version" src="https://img.shields.io/npm/v/goodies.svg">
-  </a>
-  <a href="#" target="_blank">
-    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
-  </a>
-</p>
 
 > A small backend game server for testing and learning JavaScript, NodeJS and ExpressJS
 
