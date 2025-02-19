@@ -148,5 +148,35 @@
         "price": null
       }
     ]
+  },
+  {
+    "id": 6,
+    "name": "Antwerpen",
+    "goods": [
+      {
+        "id": 1,
+        "name": "Kaffee",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 2,
+        "name": "Bananen",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 3,
+        "name": "Stahl",
+        "amount": null,
+        "price": null
+      },
+      {
+        "id": 4,
+        "name": "Kekse",
+        "amount": null,
+        "price": null
+      }
+    ]
   }
 ]
